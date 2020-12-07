@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            margin: 20px auto;
+            width: 700px;
+        }
+
+        input {
+            height: 30px;
+            width: 100%;
+            border: none;
+            border: 1px solid black;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        meter {
+            width: 97%;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>学生档案</legend>
+            <p>姓名：</p>
+            <p><input type="text" name="" id="" placeholder="请输入用户名"></p>
+            <p>手机号码：</p>
+            <p><input type="tel" required='required'></p>
+            <p>邮箱地址</p>
+            <p><input type="email"></p>
+            <p>所属学院</p>
+            <p>
+                <input type="text" name="" list="academy">
+                <datalist id="academy">
+                    <option value="计算机学院"></option>
+                    <option value="经管学院"></option>
+                    <option value="数学学院"></option>
+                    <option value="外语学院"></option>
+                </datalist>
+            </p>
+            <p>入学成绩</p>
+            <p><input type="number" name="" id="num" value="0"></p>
+            <p>基础水平</p>
+            <p><meter min='0' max="100" value="0" low="30" hign="80"></meter>></p>
+            <p>入学日期</p>
+            <p><input type="date" name="" id=""></p>
+            <p>毕业日期</p>
+            <p><input type="date" name="" id=""></p>
+            <input type="submit" value="提交">
+        </fieldset>
+    </form>
+    <script>
+        var num = document.querySelector('#num')
+        var progress = document.querySelector('meter')
+        num.oninput=function(){
+            console.log(num.value)
+            progress.value=this.value
+        }
+    </script>
+</body>
+
+</html>
