@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            border: 1px solid black;
+            margin: 10px auto
+        }
+
+        .nav {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+        }
+
+        .nav li {
+            height: 40px;
+            margin: 0px;
+            padding: 0px;
+            width: 24.8%;
+            line-height: 40px;
+            background-color: rgb(10, 170, 10);
+            text-align: center;
+            user-select: none;
+        }
+
+        .content {
+            /* width: 100%; */
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+
+        .content ol {
+            /* width: 100%; */
+            display: none;
+        }
+
+        .content ol:first-child {
+            width: 100%;
+            display: block;
+        }
+
+        .active {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="nav">
+            <li class="active">国内新闻</li>
+            <li>国际新闻</li>
+            <li>体育新闻</li>
+            <li>娱乐新闻</li>
+        </ul>
+        <div class="content">
+            <ol>
+                <li>这是国内新闻</li>
+                <li>这是国内新闻</li>
+                <li>这是国内新闻</li>
+                <li>这是国内新闻</li>
+                <li>这是国内新闻</li>
+                <li>这是国内新闻</li>
+            </ol>
+            <ol>
+                <li>这是国际新闻</li>
+                <li>这是国际新闻</li>
+                <li>这是国际新闻</li>
+                <li>这是国际新闻</li>
+                <li>这是国际新闻</li>
+                <li>这是国际新闻</li>
+            </ol>
+            <ol>
+                <li>这是体育新闻</li>
+                <li>这是体育新闻</li>
+                <li>这是体育新闻</li>
+                <li>这是体育新闻</li>
+                <li>这是体育新闻</li>
+                <li>这是体育新闻</li>
+            </ol>
+            <ol>
+                <li>这是娱乐新闻</li>
+                <li>这是娱乐新闻</li>
+                <li>这是娱乐新闻</li>
+                <li>这是娱乐新闻</li>
+                <li>这是娱乐新闻</li>
+                <li>这是娱乐新闻</li>
+            </ol>
+        </div>
+        <script>
+            var navList = document.querySelectorAll(".nav li")
+            var contentList = document.querySelectorAll(".content ol")
+            var current = 0
+
+            for (var i = 0; i < navList.length; i++) {
+                navList[i].setAttribute("data-index", i);
+                // contentList[i].setAttribute("data-index", i);
+                navList[i].onmouseover = function () {
+                    // console.log(this.dataset.index)
+                    // console.log(this.getAttribute('index')) 
+                    // e.preventDefault()
+                    navList[current].classList.remove('active')
+                    contentList[current].style.display = 'none'
+                    current = this.dataset.index
+                    contentList[current].style.display = 'block'
+                    this.classList.add('active')
+                    
+                }
+            }
+            
+        </script>
+</body>
+
+</html>
